@@ -14,6 +14,45 @@
 
         protected override void Seed(Easy_Games.Models.MyContextClass context)
         {
+            context.Client.AddOrUpdate(x => x.ClientID,
+                new Models.Client()
+                {
+                    ClientID=1,
+                    Name="Peter",
+                    Surname="Parker",
+                    ClientBalance=1000
+                });
+            context.Client.AddOrUpdate(x => x.ClientID,
+                new Models.Client()
+                {
+                    ClientID = 2,
+                    Name = "Tony",
+                    Surname = "Stark",
+                    ClientBalance = 800000
+                });
+            context.Client.AddOrUpdate(x => x.ClientID,
+                new Models.Client()
+                {
+                    ClientID = 3,
+                    Name = "Bruce",
+                    Surname = "Banner",
+                    ClientBalance = 254111
+                });
+
+            context.TransactionType.AddOrUpdate(x => x.TransactionTypeID,
+                new Models.TransactionType()
+                {
+                    TransactionTypeID=1,
+                    TransactionTypeName="Debit"
+                });
+
+            context.TransactionType.AddOrUpdate(x => x.TransactionTypeID,
+               new Models.TransactionType()
+               {
+                   TransactionTypeID = 2,
+                   TransactionTypeName = "Credit"
+               });
+
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method
