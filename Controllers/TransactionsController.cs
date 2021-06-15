@@ -16,23 +16,6 @@ namespace Easy_Games.Controllers
 
         // GET: Transactions
 
-        //public ActionResult ViewTransactions(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    Client client = db.Client.Find(id);
-
-        //    var trans = (from i in db.Transaction
-        //                 where i.ClientID==id
-        //                 select i);
-        //    if (client == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(trans.ToList());
-        //}
 
         public ActionResult Index()
         {
@@ -79,8 +62,6 @@ namespace Easy_Games.Controllers
                            where i.ClientID == transaction.ClientID
                            select i).Single();
 
-                
-              
 
                 try
                 {
@@ -137,6 +118,7 @@ namespace Easy_Games.Controllers
             {
                 return HttpNotFound();
             }
+
             ViewBag.ClientID = new SelectList(db.Client, "ClientID", "Name", transaction.ClientID);
             ViewBag.TransactionTypeID = new SelectList(db.TransactionType, "TransactionTypeID", "TransactionTypeName", transaction.TransactionTypeID);
             return View(transaction);
@@ -152,6 +134,7 @@ namespace Easy_Games.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(transaction).State = EntityState.Modified;
+                transaction.Amount = Convert.ToDecimal(transaction.Amount);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

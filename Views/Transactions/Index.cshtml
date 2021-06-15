@@ -4,10 +4,11 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
+<h2>Transactions Page</h2>
+<br />
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <input type="button" value="Create New Transaction" onclick="location.href='@Url.Action("Create", "Transactions")'" class="btn-info" />
+
 </p>
 <table class="table">
     <tr>
@@ -41,9 +42,8 @@
             @Html.DisplayFor(modelItem => item.Comment)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TransactionID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TransactionID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TransactionID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.TransactionID },new {@class="btn btn-success" }) |
+           
         </td>
     </tr>
 }

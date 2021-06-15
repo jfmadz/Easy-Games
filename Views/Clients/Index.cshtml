@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
+<h2>Clients Page</h2>
+<br />
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <input type="button" value="Create New Client" onclick="location.href='@Url.Action("Create", "Clients")'" class="btn-info"/>
 </p>
 <table class="table">
     <tr>
@@ -35,11 +35,9 @@
             @Html.DisplayFor(modelItem => item.ClientBalance)
         </td>
         <td>
-            @Html.ActionLink("View Transactions", "ViewTransactions", new { id = item.ClientID }) |
+            @Html.ActionLink("View Transactions", "ViewTransactions", new { id = item.ClientID },new {@class="btn btn-success" }) |
 
-            @Html.ActionLink("Edit", "Edit", new { id = item.ClientID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ClientID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ClientID })
+           
         </td>
     </tr>
 }
