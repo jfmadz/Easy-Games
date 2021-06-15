@@ -26,6 +26,8 @@ namespace Easy_Games.Models
                      .Property(x => x.ClientBalance)
                      .HasPrecision(18, 2);
 
+
+
             modelBuilder.Entity<Transaction>()
                      .Property(x => x.Amount)
                      .HasPrecision(18, 2);

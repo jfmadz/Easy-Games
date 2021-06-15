@@ -28,9 +28,15 @@ namespace Easy_Games.Controllers
             return View(trans.ToList());
         }
 
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
-            return View(db.Client.ToList());
+            var list = (from i in db.Client select i);
+            if ((!string.IsNullOrEmpty(searchString)))
+            {
+                list = list.Where(s => s.Name.Contains(searchString));
+            }
+
+            return View(list.ToList());
         }
 
         // GET: Clients/Details/5
