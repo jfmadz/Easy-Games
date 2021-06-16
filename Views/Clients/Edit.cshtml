@@ -36,7 +36,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ClientBalance, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <label>Please Remove All Decimal Points Before Saving</label>
+                <label>Please Ensure Decimal Seperator is "."</label>
                 @Html.EditorFor(model => model.ClientBalance, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ClientBalance, "", new { @class = "text-danger" })
             </div>
