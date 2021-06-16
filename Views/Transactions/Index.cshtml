@@ -6,6 +6,8 @@
 
 <h2>Transactions Page</h2>
 <br />
+@ViewBag.Message
+
 <p>
     <input type="button" value="Create New Transaction" onclick="location.href='@Url.Action("Create", "Transactions")'" class="btn-info" />
 
@@ -27,25 +29,26 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Client.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TransactionType.TransactionTypeName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Amount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Comment)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TransactionID },new {@class="btn btn-success" }) |
-           
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Client.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransactionType.TransactionTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comment)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.TransactionID }, new { @class = "btn btn-success" }) |
+
+            </td>
+        </tr>
+    }
 
 </table>

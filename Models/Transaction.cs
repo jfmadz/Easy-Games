@@ -31,5 +31,7 @@ namespace Easy_Games.Models
         public virtual TransactionType TransactionType { get; set; }
 
         public virtual Client Client { get; set; }
+
+       
     }
 }

@@ -18,7 +18,7 @@ namespace Easy_Games.Controllers
 
         public ActionResult ViewTransactions(int?id)
         {
-            Client client = db.Client.Find(id);
+            Client client = db.Client.Find(id);             //Display Specific clients 
           
 
             var trans = (from i in db.Transaction
@@ -30,10 +30,10 @@ namespace Easy_Games.Controllers
 
         public ActionResult Index(string searchString)
         {
-            var list = (from i in db.Client select i);
+            var list = (from i in db.Client select i);      //Search String Code
             if ((!string.IsNullOrEmpty(searchString)))
             {
-                list = list.Where(s => s.Name.Contains(searchString));
+                list = list.Where(s => s.Name.Contains(searchString)||s.Surname.Contains(searchString));
             }
 
             return View(list.ToList());

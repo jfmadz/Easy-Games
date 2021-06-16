@@ -95,7 +95,7 @@ namespace Easy_Games.Controllers
                 }
                
 
-                db.Entry(bal).State = EntityState.Modified;
+                db.Entry(bal).State = EntityState.Modified;     //update client table
                 db.Transaction.Add(transaction);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -133,8 +133,9 @@ namespace Easy_Games.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 db.Entry(transaction).State = EntityState.Modified;
-                transaction.Amount = Convert.ToDecimal(transaction.Amount);
+                //transaction.Amount = Convert.ToDecimal(transaction.Amount);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

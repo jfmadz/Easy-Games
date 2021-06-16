@@ -22,8 +22,8 @@ namespace Easy_Games.Models
         [StringLength(50)]
         public string Surname { get; set; }
 
-        [Required]
-        [Range(0, 9999999999999999.99,ErrorMessage = "Must not include any decimal points")]
+        [Required(ErrorMessage = "Must not include any decimal points")]
+        [Range(0, 9999999999999999.99)]
         public decimal ClientBalance { get; set; }
 
         public virtual ICollection<Transaction> Transaction { get; set; }
