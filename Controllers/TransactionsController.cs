@@ -133,7 +133,7 @@ namespace Easy_Games.Controllers
         {
             if (ModelState.IsValid)
             {
-                
+               
                 db.Entry(transaction).State = EntityState.Modified;
                 //transaction.Amount = Convert.ToDecimal(transaction.Amount);
                 db.SaveChanges();
