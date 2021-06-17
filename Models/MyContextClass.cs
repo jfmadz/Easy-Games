@@ -23,13 +23,13 @@ namespace Easy_Games.Models
         {
 
             modelBuilder.Entity<Client>()
-                     .Property(x => x.ClientBalance)
+                     .Property(x => x.ClientBalance)  //map precision
                      .HasPrecision(18, 2);
 
 
 
             modelBuilder.Entity<Transaction>()
-                     .Property(x => x.Amount)
+                     .Property(x => x.Amount)  //map precision
                      .HasPrecision(18, 2);
 
 
