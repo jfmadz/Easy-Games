@@ -18,7 +18,7 @@
                 new Models.Client()
                 {
                     ClientID=1,
-                    Name="Peter",
+                    Name="Peter",  //seeding
                     Surname="Parker",
                     ClientBalance=1000
                 });
